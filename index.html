@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Brayan Soto, Game Designer specializing in level design, creative direction, and technical design.">
+    
+    <!-- Open Graph for rich previews -->
+    <meta property="og:title" content="Brayan Soto | Game Designer">
+    <meta property="og:description" content="Level Design, Creative Direction, and Technical Design Portfolio.">
+    <meta property="og:image" content="https://i.ytimg.com/vi/-vMedCrdwR8/hqdefault.jpg">
+    <meta property="og:url" content="https://www.brayanmakesgames.com/index.html">
+    <meta property="og:type" content="website">
+
+    <title>Brayan Soto | Game Designer</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230a0a0a%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2716%27 fill=%27%234c8dff%27 text-anchor=%27middle%27%3EBS%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Letterbox top bar -->
+    <div class="letterbox top"></div>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">BRAYAN SOTO</a>
+            
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+
+            <nav class="main-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero cinematic-hero">
+            <div class="hero-video-wrapper">
+                <iframe class="hero-iframe" 
+                    src="https://www.youtube-nocookie.com/embed/-vMedCrdwR8?autoplay=1&mute=1&loop=1&playlist=-vMedCrdwR8&controls=0&showinfo=0&rel=0&modestbranding=1" 
+                    title="Reel Run Trailer" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="container hero-content">
+                <p class="eyebrow">Level Design &middot; Systems &middot; Creative Direction</p>
+                <h1 class="hero-title">Brayan Soto</h1>
+                <h2 class="hero-subtitle">Game Designer</h2>
+                <p class="hero-pitch">I design levels, mechanics, and the systems that tie them together.</p>
+                <div class="hero-actions">
+                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="assets/Soto_Resume.pdf" target="_blank" class="btn btn-secondary">Resume</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Section -->
+        <section class="featured-projects section-padding">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                
+                <div class="projects-grid">
+                    <!-- Reel Run (Hero Project - Large) -->
+                    <a href="reel-run.html" class="card-reel project-card large-card">
+                        <div class="card-image-wrapper">
+                            <img src="https://i.ytimg.com/vi/-vMedCrdwR8/hqdefault.jpg" alt="Reel Run gameplay" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="studio">Stardust Studios</span>
+                                <span class="dates">Aug 2024 - Jan 2026</span>
+                            </div>
+                            <h3>Reel Run</h3>
+                            <p class="role">Creative Director & Level Designer</p>
+                        </div>
+                    </a>
+
+                    <!-- Under Jugger Hollow (Small) -->
+                    <a href="under-jugger-hollow.html" class="card-jugger project-card small-card">
+                        <div class="card-image-wrapper">
+                            <img src="https://i.ytimg.com/vi/HRxLkpgZaLE/hqdefault.jpg" alt="Under Jugger Hollow gameplay" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="studio">Subterranean Studios</span>
+                                <span class="dates">Mar - May 2024</span>
+                            </div>
+                            <h3>Under Jugger Hollow</h3>
+                            <p class="role">Technical Designer</p>
+                        </div>
+                    </a>
+
+                    <!-- Time Heist (Small) -->
+                    <a href="time-heist.html" class="card-time project-card small-card">
+                        <div class="card-image-wrapper">
+                            <img src="https://i.ytimg.com/vi/0K2UaAoMzKA/hqdefault.jpg" alt="Time Heist gameplay" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-meta">
+                                <span class="studio">Solo Project</span>
+                                <span class="dates">Oct - Dec 2024</span>
+                            </div>
+                            <h3>Time Heist</h3>
+                            <p class="role">Solo Designer / Developer</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About / CTA Teaser -->
+        <section class="teaser-section section-padding">
+            <div class="container text-center">
+                <h2 class="section-title">About Me</h2>
+                <p class="teaser-text">I'm always trying to learn something new. I've led a team as creative director and designed levels, mechanics, and puzzles across a few projects.</p>
+                <div class="btn-row center">
+                    <a href="about.html" class="btn btn-secondary">More About Me</a>
+                    <a href="contact.html" class="btn btn-primary">Let's Connect</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2026 Brayan Soto. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="mailto:brayan.soto.ld@gmail.com">brayan.soto.ld@gmail.com</a>
+                <a href="https://www.linkedin.com/in/brayandsoto" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Letterbox bottom bar -->
+    <div class="letterbox bottom"></div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
