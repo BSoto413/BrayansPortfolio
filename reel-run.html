@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Reel Run - A 3D arcade hack-and-slash game by Brayan Soto. Creative Director and Level Designer.">
+    <meta name="description" content="Reel Run level design process by Brayan Soto: 2D maps, whiteboxes, and shipped levels, plus design documentation from a Steam-released 3D hack-and-slash.">
     
     <meta property="og:title" content="Reel Run | Brayan Soto">
     <meta property="og:description" content="A 3D arcade hack-and-slash where players star in popular movie archetypes.">
@@ -45,21 +45,22 @@
     </header>
 
     <main class="page-transition project-detail">
-        <!-- Project Hero Trailer -->
+        <!-- Trailer -->
         <section class="project-hero">
             <div class="container">
                 <div class="video-responsive">
-                    <iframe src="https://www.youtube-nocookie.com/embed/-vMedCrdwR8" 
-                        title="Reel Run Trailer" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe src="https://www.youtube-nocookie.com/embed/-vMedCrdwR8"
+                        title="Reel Run Trailer"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
             </div>
         </section>
 
-        <!-- Project Info & Quick Facts -->
+        <!-- Header + overview -->
         <section class="section-padding pt-0">
             <div class="container">
                 <div class="project-header text-center">
@@ -68,95 +69,309 @@
                     <div class="quick-facts">
                         <span class="fact-item"><strong>Studio:</strong> Stardust Studios</span>
                         <span class="fact-item"><strong>Engine:</strong> Unreal Engine 5</span>
-                        <span class="fact-item"><strong>Team Size:</strong> 11-person team</span>
+                        <span class="fact-item"><strong>Team:</strong> 11 people</span>
                         <span class="fact-item"><strong>Timeline:</strong> Aug 2024 - Jan 2026</span>
-                        <span class="fact-item"><strong>Role:</strong> Creative Director & Level Designer</span>
+                        <span class="fact-item"><strong>Role:</strong> Creative Director &amp; Level Designer</span>
+                        <span class="fact-item"><strong>My levels:</strong> Western Acts 1-2, Romance Acts 1-3</span>
                     </div>
                 </div>
 
                 <div class="project-content content-grid">
                     <div class="overview-section">
                         <h2>Overview</h2>
-                        <p>Reel Run is a 3D arcade hack-and-slash where players star in popular movie archetypes, fighting hordes across three levels (Western, Horror, Romance). Each level is styled after its film genre and era, featuring its own playable character and destructible environments.</p>
-                        
-                        <div class="project-links mt-4">
+                        <p>Reel Run is a 3D arcade hack-and-slash where players star in popular movie archetypes, fighting hordes across three levels (Western, Horror, Romance). Each level is styled after its film genre and era, with its own playable character and destructible environments.</p>
+                        <p>This page focuses on how I built my levels, from the first 2D map to the shipped game, and the design documentation I wrote along the way.</p>
+                        <div class="btn-row mt-4">
                             <a href="https://store.steampowered.com/app/3554130/Reel_Run/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Play Free on Steam</a>
                         </div>
                     </div>
 
                     <div class="role-section">
-                        <h2>Role Breakdown</h2>
+                        <h2>My Role</h2>
                         <div class="role-block">
                             <h3>Creative Director</h3>
                             <ul>
                                 <li>Wrote design docs for our systems, mechanics, and art pipelines.</li>
-                                <li>Directed the marketing materials and the Steam page.</li>
                                 <li>Led the 11-person team and kept everyone working toward the same vision.</li>
-                                <li>Set up a simple way for people to send me feedback, held team meetings where anyone could pitch ideas, and checked in at people's desks.</li>
                                 <li>Ran playtests and iterated on the designs.</li>
-                                <li>Designed the core mechanics and four maps.</li>
+                                <li>Directed the marketing materials and the Steam page.</li>
                             </ul>
                         </div>
                         <div class="role-block mt-4">
                             <h3>Level Designer</h3>
                             <ul>
-                                <li>Designed four maps: sketched in Photoshop, tested as 3D whiteboxes, then built out with environment art.</li>
-                                <li>Did the lighting to set the mood and keep the gameplay readable.</li>
-                                <li>Designed the first combat space, then handed it to other designers with documentation, so it became the template for later levels.</li>
-                                <li>Spent several sprints getting the combat feel right.</li>
+                                <li>Designed Western Acts 1 and 2 and all three Romance acts.</li>
+                                <li>Mapped each space in 2D, whiteboxed it in Unreal, then worked with art on the final pass.</li>
+                                <li>My first map, the saloon, became the template the rest of the team followed.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="reflection-section text-center mt-6">
+                <nav class="jump-nav" aria-label="On this page">
+                    <a href="#process">Process</a>
+                    <a href="#train">Train</a>
+                    <a href="#romance">Romance</a>
+                    <a href="#documentation">Documentation</a>
+                    <a href="#cut-content">Cut Content</a>
+                    <a href="#gallery">Final Shots</a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- PROCESS: saloon walkthrough -->
+        <section id="process" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Western Act 1 &middot; The Saloon</p>
+                <h2 class="section-title">From Map to Finished Level</h2>
+                <p class="section-intro">The saloon was the first level I built for Reel Run and our first real test of the game. Every level after it followed the same process.</p>
+
+                <div class="process-steps">
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">01</span>
+                            <h3>Plan it in 2D</h3>
+                            <p class="step-date">Sep 14-18, 2024</p>
+                            <p>I start every level as a top-down map on a grid, with a legend for scale, cover, and where the player and enemies spawn. The saloon went through several versions in four days, opening up the floor so waves of enemies had room to come at the player.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-map-wip.jpg" alt="First WIP top-down map of the saloon" loading="lazy"><figcaption>First WIP map</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-map-final.jpg" alt="Final saloon map with legend, balcony, and rugs" loading="lazy"><figcaption>Final map</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">02</span>
+                            <h3>Review with the team</h3>
+                            <p class="step-date">Sep 15, 2024</p>
+                            <p>I shared each version in our level design channel. Teammates marked up the map with notes on flow and combat zones, and I folded that feedback into the next revision.</p>
+                        </div>
+                        <div class="step-media one">
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-map-redlines.jpg" alt="Saloon map with teammate's red and blue markup" loading="lazy"><figcaption>Team markup on my map</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">03</span>
+                            <h3>Whitebox in Unreal</h3>
+                            <p class="step-date">Sep 18, 2024</p>
+                            <p>Next I blocked the map out in 3D with simple shapes to test scale, sightlines, and how combat actually felt in the space before any art was made.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-whitebox-1.jpg" alt="Gray whitebox of the saloon interior" loading="lazy"><figcaption>Whitebox, player view</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-whitebox-overview.jpg" alt="Overhead view of the saloon whitebox" loading="lazy"><figcaption>Whitebox, overview</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">04</span>
+                            <h3>Art and lighting pass</h3>
+                            <p class="step-date">Oct-Nov 2024</p>
+                            <p>Once the layout was locked, the art team built over the whitebox and I worked on lighting to set the mood and keep combat readable.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-art-pass.jpg" alt="Saloon during the first art pass" loading="lazy"><figcaption>First art pass <span class="credit">Team art</span></figcaption></figure>
+                            <figure class="stage"><video class="loop" src="assets/images/reel-run/clip-saloon-lighting.mp4" poster="assets/images/reel-run/clip-saloon-lighting-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Early lighting test in the saloon"></video><figcaption>Early lighting test</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">05</span>
+                            <h3>Ship it</h3>
+                            <p class="step-date">Feb 2025</p>
+                            <p>Once the foundation was solid, I handed the level off to other designers with clear documentation. That handoff became the standard for every level that followed.</p>
+                        </div>
+                        <div class="step-media one">
+                            <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-final.jpg" alt="Final shipped saloon" loading="lazy"><figcaption>Shipped saloon <span class="credit">Team art</span></figcaption></figure>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRAIN -->
+        <section id="train" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Western Act 2</p>
+                <h2 class="section-title">The Train</h2>
+                <p class="section-intro">Three train cars, each with its own group of enemies: passenger, storage, and luxury. Players fight through each car and follow a critical path to the door at the end of the luxury car.</p>
+                <div class="pipeline">
+                    <figure class="stage"><span class="stage-label">2D map &middot; Oct 2024</span><img class="zoomable" src="assets/images/reel-run/train-map.jpg" alt="Top-down map of the three train cars" loading="lazy"><figcaption>My map for the three cars</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Blockout &middot; Nov 2024</span><img class="zoomable" src="assets/images/reel-run/train-blockout.jpg" alt="Blockout of the train interior" loading="lazy"><figcaption>Blocked out in Unreal <span class="credit">Team</span></figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Art pass &middot; Nov 2024</span><img class="zoomable" src="assets/images/reel-run/train-art.jpg" alt="Train car during the art pass" loading="lazy"><figcaption>Art pass <span class="credit">Team art</span></figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Final</span><img class="zoomable" src="assets/images/reel-run-2.jpg" alt="Final train cars" loading="lazy"><figcaption>Shipped level</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROMANCE -->
+        <section id="romance" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Romance Level &middot; All three acts</p>
+                <h2 class="section-title">Pasi&oacute;n en el Mar</h2>
+                <p class="section-intro">I designed the whole Romance level, a telenovela set on a cruise ship. Each act went through two rounds of maps before I whiteboxed it.</p>
+
+                <h3 class="pipeline-title">Act 1 &middot; The Pool Deck</h3>
+                <p class="pipeline-note">Waves of enemies on the deck. Power boxes turn on spotlights that pull enemies into pose zones, where they freeze mid-pose.</p>
+                <div class="pipeline">
+                    <figure class="stage"><span class="stage-label">Map v1 &middot; Nov 2024</span><img class="zoomable" src="assets/images/reel-run/deck-map-v1.jpg" alt="First deck map" loading="lazy"><figcaption>First layout</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Map v2 &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/deck-map-v2.jpg" alt="Revised deck map with stage, pose spots, and power boxes" loading="lazy"><figcaption>Added pose zones and power boxes</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Whitebox &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/deck-blockout.jpg" alt="Whitebox of the pool deck" loading="lazy"><figcaption>Whitebox</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Prelit &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/deck-prelit.jpg" alt="Prelit blockout of the deck at sunset" loading="lazy"><figcaption>Prelit for review</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Dressed &middot; Feb 2025</span><img class="zoomable" src="assets/images/reel-run/deck-dressed.jpg" alt="Dressed blockout with stage and props" loading="lazy"><figcaption>Set dressing pass</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Final</span><img class="zoomable" src="assets/images/reel-run-7.jpg" alt="Final cruise ship pool deck" loading="lazy"><figcaption>Shipped level <span class="credit">Team art</span></figcaption></figure>
+                </div>
+
+                <h3 class="pipeline-title">Act 2 &middot; The Dining Hall</h3>
+                <p class="pipeline-note">Narrow aisles between round tables turn the room into a maze. Enemies dressed as chefs come in waves.</p>
+                <div class="pipeline">
+                    <figure class="stage"><span class="stage-label">Map v1 &middot; Nov 2024</span><img class="zoomable" src="assets/images/reel-run/dining-map-v1.jpg" alt="First dining hall map" loading="lazy"><figcaption>First layout</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Map v2 &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/dining-map-v2.jpg" alt="Revised dining hall map with stage and pose zones" loading="lazy"><figcaption>Added a stage and pose zones</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Blockout &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/dining-blockout.jpg" alt="Blocked out and prelit dining hall" loading="lazy"><figcaption>Blocked out and prelit</figcaption></figure>
+                </div>
+
+                <h3 class="pipeline-title">Act 3 &middot; The Club Boss Fight</h3>
+                <p class="pipeline-note">The boss, Ignacio, copies the player's moves while the dance floor lights up tiles in sequence. Lit tiles are electrified.</p>
+                <div class="pipeline">
+                    <figure class="stage"><span class="stage-label">Map v1 &middot; Nov 2024</span><img class="zoomable" src="assets/images/reel-run/club-map-v1.jpg" alt="First club map" loading="lazy"><figcaption>First layout</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Map v2 &middot; Jan 2025</span><img class="zoomable" src="assets/images/reel-run/club-map-v2.jpg" alt="Revised club map with dance floor and bar" loading="lazy"><figcaption>Dance floor arena</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Prototype &middot; Feb 2025</span><video class="loop" src="assets/images/reel-run/clip-dancefloor-test.mp4" poster="assets/images/reel-run/clip-dancefloor-test-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Prototype of the light-up dance floor tiles"></video><figcaption>Tile attack prototype <span class="credit">Programmed by team</span></figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Art pass &middot; Mar 2025</span><img class="zoomable" src="assets/images/reel-run/club-art.jpg" alt="Neon club during the art pass" loading="lazy"><figcaption>Art pass <span class="credit">Team art</span></figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Final</span><img class="zoomable" src="assets/images/reel-run-8.jpg" alt="Final Romance boss room" loading="lazy"><figcaption>Shipped level</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- DOCUMENTATION -->
+        <section id="documentation" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Creative Director</p>
+                <h2 class="section-title">Documentation</h2>
+                <p class="section-intro">As creative director, I developed our design documentation so an 11-person team could build from the same plan. These are excerpts from the GDD and our team channels.</p>
+
+                <a class="gdd-card" href="assets/docs/Reel_Run_GDD.pdf" target="_blank" rel="noopener">
+                    <div class="gdd-thumbs">
+                        <img src="assets/images/reel-run/gdd-cover.jpg" alt="First page of the Reel Run GDD" loading="lazy">
+                        <img src="assets/images/reel-run/gdd-page.jpg" alt="Western Act 1 saloon map page from the GDD" loading="lazy">
+                    </div>
+                    <div class="gdd-info">
+                        <span class="stage-label">Game Design Document &middot; PDF &middot; 26 pages</span>
+                        <h3>Reel Run GDD</h3>
+                        <p>Systems, combat and combo design, scoring, controls, UI, characters, and act-by-act breakdowns of every level with maps.</p>
+                        <span class="btn btn-primary">Read the GDD</span>
+                    </div>
+                </a>
+
+                <h3 class="doc-title">Level maps from the GDD</h3>
+                <div class="doc-grid">
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-saloon-map.jpg" alt="GDD map: Act 1 Saloon" loading="lazy"><figcaption>Western Act 1: Saloon</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-train-map.jpg" alt="GDD map: Act 2 Train" loading="lazy"><figcaption>Western Act 2: Train</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-deck-map.jpg" alt="GDD map: Romance Act 1" loading="lazy"><figcaption>Romance Act 1: Pool Deck</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-dining-map.jpg" alt="GDD map: Romance Act 2" loading="lazy"><figcaption>Romance Act 2: Dining Hall</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-club-map.jpg" alt="GDD map: Romance Act 3" loading="lazy"><figcaption>Romance Act 3: Club <span class="credit">Revised with team</span></figcaption></figure>
+                </div>
+
+                <h3 class="doc-title">Game flow and UX</h3>
+                <div class="doc-grid">
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/doc-game-flow.jpg" alt="Flow chart of the Western level acts" loading="lazy"><figcaption>Level flow: Saloon to Train to Cave Boss</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/doc-frontend-flow.jpg" alt="Flow chart of the menus and level select" loading="lazy"><figcaption>Front-end flow</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-hud.jpg" alt="Annotated HUD breakdown" loading="lazy"><figcaption>HUD breakdown</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/doc-controller.jpg" alt="Controller layout diagram" loading="lazy"><figcaption>Controller layout</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-controls-keyboard.jpg" alt="Keyboard and mouse controls diagram" loading="lazy"><figcaption>Keyboard and mouse</figcaption></figure>
+                    <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/doc-review-score.jpg" alt="Mockup of the end-of-level film critic score" loading="lazy"><figcaption>Film critic score mockup</figcaption></figure>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CUT CONTENT -->
+        <section id="cut-content" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Cut Content</p>
+                <h2 class="section-title">Sci-Fi Spaceship</h2>
+                <p class="section-intro">A sci-fi level I mapped and whiteboxed in June 2025. It spans three floors with objectives like a fuel pod and computer terminals. It was cut and never made it into the game, but it shows the same map-to-whitebox process on a vertical, multi-floor space.</p>
+                <div class="pipeline">
+                    <figure class="stage"><span class="stage-label">2D map</span><img class="zoomable" src="assets/images/reel-run/scifi-map.jpg" alt="Three-floor map of the spaceship level" loading="lazy"><figcaption>Three-floor layout</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Whitebox</span><img class="zoomable" src="assets/images/reel-run/scifi-whitebox-1.jpg" alt="Whitebox of the spaceship hub" loading="lazy"><figcaption>Hub room</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Whitebox</span><img class="zoomable" src="assets/images/reel-run/scifi-whitebox-2.jpg" alt="Overhead whitebox of floor two" loading="lazy"><figcaption>Floor two overview</figcaption></figure>
+                    <figure class="stage"><span class="stage-label">Playthrough</span><video class="loop" src="assets/images/reel-run/clip-scifi-whitebox.mp4" poster="assets/images/reel-run/clip-scifi-whitebox-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Playthrough of the spaceship whitebox"></video><figcaption>Whitebox playthrough</figcaption></figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- REFLECTION -->
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="reflection-section text-center">
                     <h3>Reflection</h3>
                     <p class="accent-text">Reel Run was my most hands-on project, as both creative director and level designer. I kept asking myself whether each design fit the vision, whether other people could repeat it, and whether it made sense in the film's context.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Screenshot Gallery -->
-        <section class="gallery-section section-padding pt-0">
+        <!-- FINAL SHOTS -->
+        <section id="gallery" class="section-padding pt-0">
             <div class="container">
-                <h2>Gallery</h2>
-                <div class="image-gallery">
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-1.jpg" alt="Western Level Act 1" loading="lazy">
-                        <figcaption>Western Level Act 1 (first map designed)</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-2.jpg" alt="Western Act 2 train cars" loading="lazy">
-                        <figcaption>Western Act 2 (train cars)</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-3.jpg" alt="Western boss room" loading="lazy">
-                        <figcaption>Western boss room</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-4.jpg" alt="Horror level mess hall" loading="lazy">
-                        <figcaption>Horror level mess hall</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-5.jpg" alt="Horror theater" loading="lazy">
-                        <figcaption>Horror theater</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-6.jpg" alt="Horror cemetery boss" loading="lazy">
-                        <figcaption>Horror cemetery boss</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-7.jpg" alt="Romance level cruise ship" loading="lazy">
-                        <figcaption>Romance level cruise ship</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-8.jpg" alt="Romance boss room" loading="lazy">
-                        <figcaption>Romance boss room</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/reel-run-9.jpg" alt="Character select carousel" loading="lazy">
-                        <figcaption>Character select carousel</figcaption>
-                    </figure>
+                <h2 class="section-title">Final Shots</h2>
+                <div class="carousel" aria-roledescription="carousel" aria-label="Final shots from Reel Run">
+                    <div class="carousel-stage">
+                        <div class="carousel-track">
+                        <figure class="carousel-slide">
+                            <img src="assets/images/reel-run-1.jpg" alt="Western Level Act 1" loading="eager">
+                            <figcaption>Western Act 1, the saloon <span class="credit mine">My level</span></figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-2.jpg" alt="Western Act 2 train cars" loading="lazy">
+                            <figcaption>Western Act 2, the train <span class="credit mine">My level</span></figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-7.jpg" alt="Romance level cruise ship" loading="lazy">
+                            <figcaption>Romance Act 1, the pool deck <span class="credit mine">My level</span></figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-8.jpg" alt="Romance boss room" loading="lazy">
+                            <figcaption>Romance Act 3, the club boss room <span class="credit mine">My level</span></figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-3.jpg" alt="Western boss room" loading="lazy">
+                            <figcaption>Western Act 3, the cave boss room</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-4.jpg" alt="Horror level mess hall" loading="lazy">
+                            <figcaption>Horror level, the mess hall</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-5.jpg" alt="Horror theater" loading="lazy">
+                            <figcaption>Horror level, the theater</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-6.jpg" alt="Horror cemetery boss" loading="lazy">
+                            <figcaption>Horror level, the cemetery boss</figcaption>
+                        </figure>
+                        <figure class="carousel-slide" aria-hidden="true">
+                            <img src="assets/images/reel-run-9.jpg" alt="Character select carousel" loading="lazy">
+                            <figcaption>Character select</figcaption>
+                        </figure>
+                        </div>
+                        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#8249;</button>
+                        <button class="carousel-btn next" type="button" aria-label="Next image">&#8250;</button>
+                        <span class="carousel-count" aria-live="polite">1 / 9</span>
+                    </div>
+                    <div class="carousel-thumbs">
+                        <button class="carousel-thumb active" type="button" aria-label="Show image 1: Western Level Act 1"><img src="assets/images/reel-run-1.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 2: Western Act 2 train cars"><img src="assets/images/reel-run-2.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 3: Romance level cruise ship"><img src="assets/images/reel-run-7.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 4: Romance boss room"><img src="assets/images/reel-run-8.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 5: Western boss room"><img src="assets/images/reel-run-3.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 6: Horror level mess hall"><img src="assets/images/reel-run-4.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 7: Horror theater"><img src="assets/images/reel-run-5.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 8: Horror cemetery boss"><img src="assets/images/reel-run-6.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 9: Character select carousel"><img src="assets/images/reel-run-9.jpg" alt="" loading="lazy"></button>
+                    </div>
                 </div>
             </div>
         </section>

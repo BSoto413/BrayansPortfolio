@@ -46,8 +46,44 @@
     }
   });
 
+
+  // ---- Carousel ----
+  document.querySelectorAll(".carousel").forEach(function (car) {
+    var track = car.querySelector(".carousel-track");
+    var slides = car.querySelectorAll(".carousel-slide");
+    var thumbs = car.querySelectorAll(".carousel-thumb");
+    var count = car.querySelector(".carousel-count");
+    var i = 0, n = slides.length;
+    function go(k) {
+      i = (k + n) % n;
+      track.style.transform = "translateX(" + (-100 * i) + "%)";
+      slides.forEach(function (s, j) { s.setAttribute("aria-hidden", j === i ? "false" : "true"); });
+      thumbs.forEach(function (t, j) { t.classList.toggle("active", j === i); });
+      if (thumbs[i]) thumbs[i].scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+      if (count) count.textContent = (i + 1) + " / " + n;
+      var next = slides[(i + 1) % n].querySelector("img");
+      if (next) next.loading = "eager";
+    }
+    car.querySelector(".prev").addEventListener("click", function () { go(i - 1); });
+    car.querySelector(".next").addEventListener("click", function () { go(i + 1); });
+    thumbs.forEach(function (t, j) { t.addEventListener("click", function () { go(j); }); });
+    car.tabIndex = 0;
+    car.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") go(i - 1);
+      if (e.key === "ArrowRight") go(i + 1);
+    });
+    var x0 = null;
+    track.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    track.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) go(dx < 0 ? i + 1 : i - 1);
+      x0 = null;
+    });
+  });
+
   // ---- Gallery lightbox ----
-  var gallery = document.querySelectorAll(".gallery-item img");
+  var gallery = document.querySelectorAll(".gallery-item img, img.zoomable, .carousel-slide img");
   if (gallery.length) {
     var box = document.createElement("div");
     box.className = "lightbox";
