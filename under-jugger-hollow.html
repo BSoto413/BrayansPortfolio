@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Under Jugger Hollow - A 3D puzzle-adventure game. Technical Design by Brayan Soto.">
+    <meta name="description" content="Under Jugger Hollow: puzzle design, progression, UI, and accessibility by Brayan Soto, Technical Designer on a 3D puzzle-adventure built in Unity.">
     
     <meta property="og:title" content="Under Jugger Hollow | Brayan Soto">
     <meta property="og:description" content="A 3D puzzle-adventure blending 3D environments with 2D character sprites.">
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230a0a0a%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2716%27 fill=%27%234c8dff%27 text-anchor=%27middle%27%3EBS%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="css/styles.css?v=6">
+    <link rel="stylesheet" href="css/styles.css?v=5">
 </head>
 <body class="theme-jugger">
     <div class="letterbox top"></div>
@@ -48,10 +48,11 @@
         <section class="project-hero">
             <div class="container">
                 <div class="video-responsive">
-                    <iframe src="https://www.youtube-nocookie.com/embed/HRxLkpgZaLE" 
-                        title="Under Jugger Hollow Trailer" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe src="https://www.youtube-nocookie.com/embed/HRxLkpgZaLE"
+                        title="Under Jugger Hollow Trailer"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -65,19 +66,27 @@
                     <div class="quick-facts">
                         <span class="fact-item"><strong>Studio:</strong> Subterranean Studios</span>
                         <span class="fact-item"><strong>Engine:</strong> Unity</span>
-                        <span class="fact-item"><strong>Team Size:</strong> 6</span>
+                        <span class="fact-item"><strong>Team:</strong> 6 people</span>
                         <span class="fact-item"><strong>Timeline:</strong> Mar - May 2024</span>
                         <span class="fact-item"><strong>Role:</strong> Technical Designer</span>
+                        <span class="fact-item"><strong>My puzzles:</strong> Hub, Ice, Electric</span>
                     </div>
                 </div>
+
+                <ul class="highlights" aria-label="Highlights">
+                    <li><strong>Released</strong><span>Free on itch.io</span></li>
+                    <li><strong>3 Puzzle areas</strong><span>Designed by me</span></li>
+                    <li><strong>4 Characters</strong><span>Voice acted</span></li>
+                    <li><strong>Accessible</strong><span>Subtitles and high contrast</span></li>
+                </ul>
 
                 <div class="project-content content-grid">
                     <div class="overview-section">
                         <h2>Overview</h2>
-                        <p>Under Jugger Hollow is a 3D puzzle-adventure that blends vibrant 3D environments with classic 2D character sprites. It's built around curiosity and exploration, and the puzzles change the environment around you. Examples include an ice-block puzzle and an electric-themed puzzle.</p>
-                        
-                        <div class="project-links mt-4">
-                            <a href="https://www.youtube.com/watch?v=HRxLkpgZaLE" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch Trailer</a>
+                        <p>Under Jugger Hollow is a 3D puzzle-adventure. Steven falls into an underground city and helps its residents fix an elevator back to the surface. The game mixes vibrant 3D environments with classic 2D character sprites.</p>
+                        <p>The hub connects three themed levels (electric, fire, and ice) that can be played in any order. Each one is built around puzzles that change the environment around you.</p>
+                        <div class="btn-row mt-4">
+                            <a href="https://zmin2019.itch.io/under-jugger-hollow" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Play Free on itch.io</a>
                         </div>
                     </div>
 
@@ -85,47 +94,144 @@
                         <h2>My Role</h2>
                         <div class="role-block">
                             <ul>
-                                <li>I designed unique mechanics for each of the three levels.</li>
-                                <li>I built puzzles to balance challenge and engagement.</li>
-                                <li>I designed and implemented all the UI in the game.</li>
-                                <li>I directed the voice-acted dialogue.</li>
-                                <li>I produced and cut the marketing trailer in Premiere Pro.</li>
-                                <li>I designed and built levels and environment art with a modular kit, working alongside another designer.</li>
-                                <li>I worked closely with the programmers so the mechanics matched the design.</li>
+                                <li>Designed the puzzles for the hub, the ice level, and the electric level. Another designer handled the level layouts.</li>
+                                <li>Came up with the progression system: each level you finish grants a permanent power-up.</li>
+                                <li>Led most of the playtesting, focused on making puzzles readable and reset cleanly.</li>
+                                <li>Wrote design documentation for the team.</li>
+                                <li>Designed and implemented the UI, including subtitles and a high-contrast mode.</li>
+                                <li>Directed the voice acting for four characters and cut the trailer in Premiere Pro.</li>
+                                <li>Built small props for the hub with the modular kit.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="reflection-section text-center mt-6">
-                    <h3>Reflection</h3>
-                    <p class="accent-text">This was my first time designing mechanics that change the environment itself, and I learned a lot working closely with the team to make the puzzles feel dynamic.</p>
+                <nav class="jump-nav" aria-label="On this page">
+                    <a href="#world">The World</a>
+                    <a href="#decisions">Decisions</a>
+                    <a href="#gallery">Final Shots</a>
+                </nav>
+            </div>
+        </section>
+
+        <!-- THE WORLD -->
+        <section id="world" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Structure</p>
+                <h2 class="section-title">One Hub, Three Levels</h2>
+                <p class="section-intro">Players pick their own order from the hub. I designed the puzzles in three of the four areas.</p>
+                <div class="area-grid">
+                    <figure class="area-card">
+                        <img class="zoomable" src="assets/images/ujh/hub.jpg" alt="The hub, a central intersection in the underground city" loading="lazy">
+                        <figcaption><span class="area-name">The Hub</span> <span class="credit mine">My puzzles</span><span class="area-note">A central crossroads with a friendly robot and the elevator operator.</span></figcaption>
+                    </figure>
+                    <figure class="area-card">
+                        <img class="zoomable" src="assets/images/ujh/ice-wide.jpg" alt="The ice level's frozen bunker" loading="lazy">
+                        <figcaption><span class="area-name">Ice Level</span> <span class="credit mine">My puzzles</span><span class="area-note">A frozen bunker where you guide a lost penguin home.</span></figcaption>
+                    </figure>
+                    <figure class="area-card">
+                        <img class="zoomable" src="assets/images/ujh/itch-electric.jpg" alt="The electric level's circuit puzzle from above" loading="lazy">
+                        <figcaption><span class="area-name">Electric Level</span> <span class="credit mine">My puzzles</span><span class="area-note">A dead factory that can power the whole city once it's repaired.</span></figcaption>
+                    </figure>
+                    <figure class="area-card">
+                        <img class="zoomable" src="assets/images/ujh/fire.jpg" alt="The fire level's magma arena" loading="lazy">
+                        <figcaption><span class="area-name">Fire Level</span> <span class="credit">Team</span><span class="area-note">An abandoned arena in a magma cavern.</span></figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
-        <section class="gallery-section section-padding pt-0">
-    <div class="container">
-        <h2>Gallery</h2>
-        <div class="image-gallery">
-            <figure class="gallery-item">
-                <img src="assets/images/jugger-1.jpg" alt="Steven in the ice level" loading="lazy">
-                <figcaption>Steven in the ice level, where you solve the puzzle by creating ice blocks</figcaption>
-            </figure>
-            <figure class="gallery-item">
-                <img src="assets/images/jugger-2.jpg" alt="Hub area" loading="lazy">
-                <figcaption>The hub area, where you pick up abilities from the robot companion</figcaption>
-            </figure>
-            <figure class="gallery-item">
-                <img src="assets/images/jugger-3.jpg" alt="Steven and the cardboard cutout" loading="lazy">
-                <figcaption>Steven standing in front of a cardboard cutout</figcaption>
-            </figure>
-            <figure class="gallery-item">
-                <img src="assets/images/jugger-4.jpg" alt="Electric level puzzle" loading="lazy">
-                <figcaption>A puzzle from the electric-themed level</figcaption>
-            </figure>
-        </div>
-    </div>
-</section>
+
+        <!-- DESIGN DECISIONS -->
+        <section id="decisions" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Iteration</p>
+                <h2 class="section-title">Design Decisions</h2>
+                <p class="section-intro">The ideas I pushed for and the problems I solved through playtesting.</p>
+                <div class="decisions">
+                    <div class="dtabs" role="tablist" aria-label="Design decisions">
+                        <button class="dtab active" type="button" role="tab" id="dtab-powerups" aria-controls="dpanel-powerups" aria-selected="true"><span class="dtab-num">01</span>Power-ups</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-penguin" aria-controls="dpanel-penguin" aria-selected="false" tabindex="-1"><span class="dtab-num">02</span>Penguin puzzle</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-access" aria-controls="dpanel-access" aria-selected="false" tabindex="-1"><span class="dtab-num">03</span>Accessibility</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-voice" aria-controls="dpanel-voice" aria-selected="false" tabindex="-1"><span class="dtab-num">04</span>Voice acting</button>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-powerups" aria-labelledby="dtab-powerups">
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/ujh/ice.jpg" alt="The ice level with the power-up meter on screen" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">My idea &middot; Progression</span>
+                            <h3>Every level you finish makes you stronger.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>Three separate levels played in any order could feel like a checklist with no reason to come back.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>I pitched permanent power-ups: finishing a level grants a new ability you keep. It gives players a reason to replay levels and try them in a different order.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-penguin" aria-labelledby="dtab-penguin" hidden>
+                        <figure class="dpanel-media"><video class="loop" src="assets/images/ujh/clip-ice.mp4" poster="assets/images/ujh/clip-ice-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="The ice block puzzle in action"></video></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Ice level puzzle</span>
+                            <h3>The penguin always takes the open path.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The puzzle</span><p>You summon falling ice blocks to bump a lost penguin toward its igloo. The penguin always moves toward the next open space, so once you spot that rule, you can place blocks to steer it all the way home.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>Playtesting focused on making that rule easy to spot and making the puzzle reset cleanly, so players felt free to experiment instead of getting stuck.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-access" aria-labelledby="dtab-access" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/ujh/hub-talk.jpg" alt="An interaction prompt in the hub" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">UI &middot; My call</span>
+                            <h3>Not every game is for everyone, but everyone should be able to play it.</h3>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>As the UI designer, I added subtitles for all voiced dialogue and a high-contrast mode, so players with hearing or vision needs can still read the world and solve the puzzles.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-voice" aria-labelledby="dtab-voice" hidden>
+                        <figure class="dpanel-media"><video class="loop" src="assets/images/ujh/clip-dialogue.mp4" poster="assets/images/ujh/clip-dialogue-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="A character talking in the ice level"></video></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Narrative &middot; Voice direction</span>
+                            <h3>A silent hero needs a world that talks.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>Steven has no voice, so the world had to carry its own personality.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>I directed voice acting for four characters, giving the residents life beyond text boxes and giving the city a clear identity.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="reflection-section text-center">
+                    <h3>Reflection</h3>
+                    <p class="accent-text">This was my first time designing mechanics that change the environment itself. Watching players in playtests taught me that a good puzzle rule has to be discoverable, and that a clean reset is what makes people willing to experiment.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-padding pt-0">
+            <div class="container">
+                <h2 class="section-title">Final Shots</h2>
+                <div class="carousel" aria-roledescription="carousel" aria-label="Final shots from Under Jugger Hollow">
+                    <div class="carousel-stage">
+                        <div class="carousel-track">
+                            <figure class="carousel-slide"><img src="assets/images/ujh/itch-hub.jpg" alt="Steven in the hub next to a sign" loading="eager"><figcaption>The hub <span class="credit mine">My puzzles</span></figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/jugger-1.jpg" alt="Steven in the ice level" loading="lazy"><figcaption>The ice level's block puzzle <span class="credit mine">My puzzles</span></figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/ujh/ice-bridge.jpg" alt="A bridge through the frozen bunker" loading="lazy"><figcaption>The frozen bunker <span class="credit mine">My puzzles</span></figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/jugger-4.jpg" alt="The electric level's puzzle" loading="lazy"><figcaption>The electric level's circuit puzzle <span class="credit mine">My puzzles</span></figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/jugger-2.jpg" alt="The hub with the robot companion" loading="lazy"><figcaption>The robot companion who grants abilities</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/ujh/fire-arena.jpg" alt="The electric level's flooded arena" loading="lazy"><figcaption>The electric level's arena <span class="credit mine">My puzzles</span></figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/ujh/itch-gate.jpg" alt="A character in front of a glowing gate" loading="lazy"><figcaption>The gate to the surface</figcaption></figure>
+                        </div>
+                        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#8249;</button>
+                        <button class="carousel-btn next" type="button" aria-label="Next image">&#8250;</button>
+                        <span class="carousel-count" aria-live="polite">1 / 7</span>
+                    </div>
+                    <div class="carousel-thumbs">
+                        <button class="carousel-thumb active" type="button" aria-label="Show image 1"><img src="assets/images/ujh/itch-hub.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 2"><img src="assets/images/jugger-1.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 3"><img src="assets/images/ujh/ice-bridge.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 4"><img src="assets/images/jugger-4.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 5"><img src="assets/images/jugger-2.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 6"><img src="assets/images/ujh/fire-arena.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 7"><img src="assets/images/ujh/itch-gate.jpg" alt="" loading="lazy"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -140,6 +246,6 @@
 
     <div class="letterbox bottom"></div>
 
-    <script src="js/main.js?v=6"></script>
+    <script src="js/main.js?v=5"></script>
 </body>
 </html>
