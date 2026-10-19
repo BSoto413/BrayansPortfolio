@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Time Heist - A first-person game with teleportation and a time-based weapon, by Brayan Soto. Solo Designer and Developer.">
+    <meta name="description" content="Time Heist: a solo first-person stealth level by Brayan Soto, from level design doc to whitebox to final build in Unreal Engine.">
     
     <meta property="og:title" content="Time Heist | Brayan Soto">
     <meta property="og:description" content="A short first-person experience in a ruined, tide-swallowed city.">
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230a0a0a%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2716%27 fill=%27%234c8dff%27 text-anchor=%27middle%27%3EBS%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="css/styles.css?v=5">
+    <link rel="stylesheet" href="css/styles.css?v=9">
 </head>
 <body class="theme-time">
     <div class="letterbox top"></div>
@@ -48,10 +48,11 @@
         <section class="project-hero">
             <div class="container">
                 <div class="video-responsive">
-                    <iframe src="https://www.youtube-nocookie.com/embed/0K2UaAoMzKA" 
-                        title="Time Heist Trailer" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    <iframe src="https://www.youtube-nocookie.com/embed/0K2UaAoMzKA"
+                        title="Time Heist Trailer"
+                        frameborder="0"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen>
                     </iframe>
                 </div>
@@ -63,21 +64,28 @@
                 <div class="project-header text-center">
                     <h1 class="page-title">Time Heist</h1>
                     <div class="quick-facts">
-                        <span class="fact-item"><strong>Studio:</strong> Solo Project</span>
+                        <span class="fact-item"><strong>Type:</strong> Solo level design project</span>
                         <span class="fact-item"><strong>Engine:</strong> Unreal Engine</span>
-                        <span class="fact-item"><strong>Team Size:</strong> 1</span>
                         <span class="fact-item"><strong>Timeline:</strong> Oct - Dec 2024</span>
+                        <span class="fact-item"><strong>Genre:</strong> First-person stealth</span>
                         <span class="fact-item"><strong>Role:</strong> Solo Designer / Developer</span>
                     </div>
                 </div>
 
+                <ul class="highlights" aria-label="Highlights">
+                    <li><strong>100 / 100</strong><span>Final project grade</span></li>
+                    <li><strong>3 Heights</strong><span>Sea level, cliffs, below sea</span></li>
+                    <li><strong>2 Mechanics</strong><span>Teleport and time pistol</span></li>
+                    <li><strong>5 Check-ins</strong><span>From map to final build</span></li>
+                </ul>
+
                 <div class="project-content content-grid">
                     <div class="overview-section">
                         <h2>Overview</h2>
-                        <p>Time Heist is a short first-person experience I built. It takes place in a ruined, tide-swallowed city. You use teleportation and a time-based weapon to navigate vertical, non-linear spaces. As you progress, the water lowers and unlocks new paths.</p>
-                        
-                        <div class="project-links mt-4">
-                            <a href="https://www.youtube.com/watch?v=0K2UaAoMzKA" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Watch Trailer</a>
+                        <p>Time Heist is a first-person stealth level set in a flooded cave ruin. On your first solo mission, an AI companion sends you to steal a relic before rival time bandits get to it.</p>
+                        <p>You teleport onto pillars and rock ledges above the guards, freeze anyone who spots you with a time pistol, and set a time bomb that drains the water to reveal the ruins below, where the relic waits.</p>
+                        <div class="btn-row mt-4">
+                            <a href="assets/docs/Time_Heist_LDD.pdf" target="_blank" rel="noopener" class="btn btn-primary">Read the Level Design Doc</a>
                         </div>
                     </div>
 
@@ -85,53 +93,174 @@
                         <h2>My Role</h2>
                         <div class="role-block">
                             <ul>
-                                <li>I designed the post-apocalyptic level layouts.</li>
-                                <li>I programmed the teleportation mechanics and the time-based weapon.</li>
-                                <li>I integrated over 30 assets into the project.</li>
-                                <li>I built fluid FPS movement.</li>
-                                <li>I optimized the game for performance.</li>
+                                <li>Wrote the level design document and drew both floor maps.</li>
+                                <li>Built and iterated the level in Unreal over five check-ins.</li>
+                                <li>Programmed teleportation, the time pistol, and stamina-based sprint.</li>
+                                <li>Scripted the time bomb that lowers the water and opens the second half of the level.</li>
+                                <li>Dressed the level with one Fab marketplace asset pack.</li>
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                <div class="role-block mt-4">
-                    <h2>Level Design</h2>
-                    <p>I wanted players to make decisions and pick the best path through the level: aim high to avoid conflict, or time the blaster's cooldown to clear enemies. Teleporting is built into key sections, and the start of the level teaches the mechanics.</p>
-                </div>
+                <nav class="jump-nav" aria-label="On this page">
+                    <a href="#process">Process</a>
+                    <a href="#mechanics">Mechanics</a>
+                    <a href="#gallery">Final Shots</a>
+                </nav>
+            </div>
+        </section>
 
-                <div class="role-block mt-4">
-                    <h2>Environmental Mechanics</h2>
-                    <p>The water works as a barrier that stops you from falling and guides your progress. When you reach a certain area, it lowers and opens new paths. I built the space vertically so you look up for teleport points, which makes it feel exploratory instead of linear.</p>
-                </div>
+        <!-- PROCESS -->
+        <section id="process" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Level Design Class &middot; 5 Check-ins</p>
+                <h2 class="section-title">From Map to Finished Level</h2>
+                <p class="section-intro">I built Time Heist for a level design class, presenting a new build at each check-in.</p>
 
-                <div class="reflection-section text-center mt-6">
-                    <h3>Reflection</h3>
-                    <p class="accent-text">I enjoyed owning every design decision on a solo pipeline. I want to revisit and update this project in the future.</p>
+                <div class="process-steps">
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">01</span>
+                            <h3>Plan it in 2D</h3>
+                            <p class="step-date">Level design doc</p>
+                            <p>I mapped the level on two floors: sea level, where the player starts, and below sea level, which opens once the water drains. Height is color-coded from -900 to 900 units, and each map shows the critical path, enemy patrols, and interactables.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/map-sea.jpg" alt="Sea level map with critical path and enemy patrols" loading="lazy"><figcaption>Sea level</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/map-below.jpg" alt="Below sea level map leading to the relic" loading="lazy"><figcaption>Below sea level</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">02</span>
+                            <h3>Whitebox the route</h3>
+                            <p class="step-date">Check-ins 2-3</p>
+                            <p>I blocked the level out with gray shapes and placeholder guards. Between check-ins, I made it more vertical, adding ledges to teleport onto so players could feel danger below them without being punished for experimenting.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/wb-enemies.jpg" alt="Whitebox with placeholder guards" loading="lazy"><figcaption>Placeholder guards</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/wb-teleport.jpg" alt="Whitebox teleport target on a rock ledge" loading="lazy"><figcaption>Testing teleport points</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">03</span>
+                            <h3>Art pass</h3>
+                            <p class="step-date">Check-in 4</p>
+                            <p>I replaced the whitebox with assets from one Fab marketplace pack, turning the gray blocks into a sunken ruin of arches and broken pillars.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/art-pillars.jpg" alt="Broken pillars over the water" loading="lazy"><figcaption>Pillars to teleport across</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/art-lowered.jpg" alt="The level after the water drains" loading="lazy"><figcaption>After the water drains</figcaption></figure>
+                        </div>
+                    </article>
+
+                    <article class="process-step">
+                        <div class="step-text">
+                            <span class="step-num">04</span>
+                            <h3>Light and finish</h3>
+                            <p class="step-date">Check-in 5 &amp; final</p>
+                            <p>I added lighting, torches, and the HUD. My plan called for a warm-to-cool day-to-night shift, but I cut it to keep the level readable, since my lighting skills were still early.</p>
+                        </div>
+                        <div class="step-media two">
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/lit-pistol.jpg" alt="Lit archway with the control prompt" loading="lazy"><figcaption>Final lighting</figcaption></figure>
+                            <figure class="stage"><img class="zoomable" src="assets/images/th/fin-relic.jpg" alt="The tunnel leading to the relic" loading="lazy"><figcaption>The path to the relic</figcaption></figure>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section class="gallery-section section-padding pt-0">
+        <!-- MECHANICS -->
+        <section id="mechanics" class="section-padding pt-0">
             <div class="container">
-                <h2>Gallery</h2>
-                <div class="image-gallery">
-                    <figure class="gallery-item">
-                        <img src="assets/images/time-heist-1.jpg" alt="Opening corridor" loading="lazy">
-                        <figcaption>The opening corridor</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/time-heist-2.jpg" alt="Set dressing" loading="lazy">
-                        <figcaption>Set dressing the environment with clutter</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/time-heist-3.jpg" alt="Water lowering" loading="lazy">
-                        <figcaption>The water lowers to reveal more of the level</figcaption>
-                    </figure>
-                    <figure class="gallery-item">
-                        <img src="assets/images/time-heist-4.jpg" alt="Teleportable rocks" loading="lazy">
-                        <figcaption>Vertical teleportable rocks in the caved-in environment</figcaption>
-                    </figure>
+                <p class="eyebrow">Gameplay</p>
+                <h2 class="section-title">Mechanics &amp; Decisions</h2>
+                <p class="section-intro">The tools I gave the player and why.</p>
+                <div class="decisions">
+                    <div class="dtabs" role="tablist" aria-label="Mechanics">
+                        <button class="dtab active" type="button" role="tab" id="dtab-teleport" aria-controls="dpanel-teleport" aria-selected="true"><span class="dtab-num">01</span>Teleport</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-pistol" aria-controls="dpanel-pistol" aria-selected="false" tabindex="-1"><span class="dtab-num">02</span>Time pistol</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-water" aria-controls="dpanel-water" aria-selected="false" tabindex="-1"><span class="dtab-num">03</span>Time bomb</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-scope" aria-controls="dpanel-scope" aria-selected="false" tabindex="-1"><span class="dtab-num">04</span>Hard cuts</button>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-teleport" aria-labelledby="dtab-teleport">
+                        <figure class="dpanel-media"><video class="loop" src="assets/images/th/clip-teleport.mp4" poster="assets/images/th/clip-teleport-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Teleporting across pillars above the water"></video></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Movement &middot; Verticality</span>
+                            <h3>The safest route is always up.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The mechanic</span><p>Aim at a nearby ledge or pillar and teleport to it. It's on a cooldown, so each jump is a choice.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">Why</span><p>The critical path runs over the guards' heads. Players can see the danger below them, but a missed jump isn't fatal, so they're free to experiment with routes.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-pistol" aria-labelledby="dtab-pistol" hidden>
+                        <figure class="dpanel-media"><video class="loop" src="assets/images/th/clip-pistol.mp4" poster="assets/images/th/clip-pistol-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Firing the time pistol"></video></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Stealth tool</span>
+                            <h3>Freeze them before they find you.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The mechanic</span><p>The time pistol fires a laser that freezes a guard in place until they burn out of existence. An overheat meter limits how often you can use it.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">Why</span><p>It's a stealth game, so the pistol is a way out of a mistake, not a weapon to clear the level. The cooldown keeps sneaking as the main plan.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-water" aria-labelledby="dtab-water" hidden>
+                        <figure class="dpanel-media"><video class="loop" src="assets/images/th/clip-water.mp4" poster="assets/images/th/clip-water-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Setting the time bomb and the water level dropping"></video></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Level structure</span>
+                            <h3>One level, two halves.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The mechanic</span><p>The first half ends at the time bomb. Setting it drains the water and reveals the ruins below sea level, where the relic is hidden.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">Why</span><p>The water works as a barrier that stops the player from falling and guides them forward. Draining it reuses the same space as a whole new level beneath the first.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-scope" aria-labelledby="dtab-scope" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/th/fin-pillar.jpg" alt="Broken pillars in the final lighting" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Scope &middot; Time constraint</span>
+                            <h3>Ship what works, cut what doesn't.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>The planned day-to-night lighting shift made the level too dark to read, and I didn't yet understand lighting well enough to fix it in time.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>I cut it and kept one readable lighting setup, so I could focus my remaining time on the route and mechanics. The project earned a 100.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-padding pt-0">
+            <div class="container">
+                <div class="reflection-section text-center">
+                    <h3>Reflection</h3>
+                    <p class="accent-text">This was one of my first levels. If I built it today, I'd tighten the pacing, make the AI smarter than spot-and-charge, and make the level bigger with more variety. Working against a deadline taught me to make the calls that get a level finished.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="section-padding pt-0">
+            <div class="container">
+                <h2 class="section-title">Final Shots</h2>
+                <div class="carousel" aria-roledescription="carousel" aria-label="Final shots from Time Heist">
+                    <div class="carousel-stage">
+                        <div class="carousel-track">
+                            <figure class="carousel-slide"><img src="assets/images/th/lit-pistol.jpg" alt="Lit archways in the cave ruin" loading="eager"><figcaption>The sunken archways</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/th/fin-pillar.jpg" alt="Broken pillars over the water" loading="lazy"><figcaption>Pillars to teleport across</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/th/lit-bomb.jpg" alt="A torch-lit passage" loading="lazy"><figcaption>Torch-lit passage to the time bomb</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/th/lit-lowered.jpg" alt="The drained cave below sea level" loading="lazy"><figcaption>Below sea level, after the water drains</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/th/fin-relic.jpg" alt="The tunnel to the relic" loading="lazy"><figcaption>The tunnel to the relic</figcaption></figure>
+                            <figure class="carousel-slide" aria-hidden="true"><img src="assets/images/time-heist-3.jpg" alt="The water lowering" loading="lazy"><figcaption>The water lowering to reveal the ruins</figcaption></figure>
+                        </div>
+                        <button class="carousel-btn prev" type="button" aria-label="Previous image">&#8249;</button>
+                        <button class="carousel-btn next" type="button" aria-label="Next image">&#8250;</button>
+                        <span class="carousel-count" aria-live="polite">1 / 6</span>
+                    </div>
+                    <div class="carousel-thumbs">
+                        <button class="carousel-thumb active" type="button" aria-label="Show image 1"><img src="assets/images/th/lit-pistol.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 2"><img src="assets/images/th/fin-pillar.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 3"><img src="assets/images/th/lit-bomb.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 4"><img src="assets/images/th/lit-lowered.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 5"><img src="assets/images/th/fin-relic.jpg" alt="" loading="lazy"></button>
+                        <button class="carousel-thumb" type="button" aria-label="Show image 6"><img src="assets/images/time-heist-3.jpg" alt="" loading="lazy"></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -149,6 +278,6 @@
 
     <div class="letterbox bottom"></div>
 
-    <script src="js/main.js?v=5"></script>
+    <script src="js/main.js?v=9"></script>
 </body>
 </html>
