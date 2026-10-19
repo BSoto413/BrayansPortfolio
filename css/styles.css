@@ -619,7 +619,7 @@ p { margin: 0 0 1em; }
    Process page components (Reel Run)
    ========================================================== */
 .section-intro { max-width: 46rem; color: var(--text-dim); font-size: 1.08rem; margin: -0.6rem 0 2.4rem; }
-#process, #train, #romance, #documentation, #cut-content, #gallery { scroll-margin-top: calc(var(--header-h) + 16px); }
+#process, #train, #romance, #decisions, #documentation, #cut-content, #gallery { scroll-margin-top: calc(var(--header-h) + 16px); }
 
 .jump-nav {
   display: flex;
@@ -871,3 +871,48 @@ p { margin: 0 0 1em; }
   .carousel-track { align-items: flex-start; }
   .carousel-btn { top: calc((100vw - 34px) * 9 / 32); }
 }
+
+/* Highlights strip */
+.highlights { list-style: none; margin: 0 0 3.5rem; padding: 0; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.highlights li { padding: 18px 20px; background: var(--bg-card); border: 1px solid var(--line); border-top: 3px solid var(--accent); border-radius: var(--radius); display: flex; flex-direction: column; gap: 4px; }
+.highlights strong { font-family: var(--font-head); font-size: 1.9rem; line-height: 1; color: var(--text); }
+.highlights span { font-size: 0.85rem; color: var(--text-dim); }
+
+/* Design decision cards */
+.decision-grid { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); }
+.decision-card { padding: 24px 26px; background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); display: flex; flex-direction: column; gap: 12px; }
+.decision-card h3 { font-size: 1.3rem; margin: 0 0 4px; }
+.decision-card .stage-label { margin: 0; }
+.dc-row { display: grid; grid-template-columns: 78px 1fr; gap: 12px; align-items: baseline; }
+.dc-row p { margin: 0; color: var(--text-dim); font-size: 0.95rem; }
+.dc-label { font-family: var(--font-head); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+@media (max-width: 480px) { .decision-grid { grid-template-columns: 1fr; } .dc-row { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Design decisions: tabbed feature */
+.decisions { background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.dtabs { display: flex; overflow-x: auto; border-bottom: 1px solid var(--line); scrollbar-width: none; }
+.dtabs::-webkit-scrollbar { display: none; }
+.dtab {
+  flex: 1 0 auto; display: flex; align-items: center; gap: 10px;
+  padding: 16px 20px; background: none; border: 0; border-bottom: 3px solid transparent;
+  color: var(--text-dim); cursor: pointer; white-space: nowrap;
+  font-family: var(--font-head); font-size: 0.95rem; letter-spacing: 0.08em; text-transform: uppercase;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.dtab:hover { color: var(--text); background: var(--accent-soft); }
+.dtab.active { color: var(--text); border-bottom-color: var(--accent); }
+.dtab-num { color: var(--accent); font-size: 0.8rem; }
+.dpanel { display: grid; grid-template-columns: 1fr; }
+.dpanel[hidden] { display: none; }
+.dpanel-media { margin: 0; background: #000; }
+.dpanel-media img { width: 100%; height: 100%; aspect-ratio: 16 / 10; object-fit: cover; display: block; cursor: zoom-in; }
+.dpanel-text { padding: 28px 30px 32px; display: flex; flex-direction: column; gap: 18px; justify-content: center; }
+.dpanel-text h3 { font-size: clamp(1.6rem, 3vw, 2.3rem); line-height: 1.1; margin: 0; color: var(--text); text-transform: none; letter-spacing: 0; }
+.dpanel-text .stage-label { margin: 0; }
+.dpanel-row { display: flex; flex-direction: column; gap: 4px; }
+.dpanel-row p { margin: 0; font-size: 1.02rem; color: var(--text-dim); }
+.dpanel-row:last-child p { color: var(--text); }
+.dpanel.show { animation: page-in 0.4s var(--ease) both; }
+@media (min-width: 900px) { .dpanel { grid-template-columns: 1.15fr 1fr; min-height: 420px; } .dpanel-media img { aspect-ratio: auto; } .dpanel-text { padding: 40px 44px; } }
+.highlights strong { white-space: nowrap; font-size: clamp(1.4rem, 1.75vw, 1.7rem); }
+@media (max-width: 700px) { .highlights { grid-template-columns: 1fr 1fr; } .highlights li:last-child:nth-child(odd) { grid-column: 1 / -1; } }

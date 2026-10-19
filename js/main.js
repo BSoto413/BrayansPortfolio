@@ -82,6 +82,32 @@
     });
   });
 
+
+  // ---- Tabs (design decisions) ----
+  document.querySelectorAll(".decisions").forEach(function (wrap) {
+    var tabs = Array.prototype.slice.call(wrap.querySelectorAll(".dtab"));
+    function pick(t, focus) {
+      tabs.forEach(function (o) {
+        var on = o === t, panel = document.getElementById(o.getAttribute("aria-controls"));
+        o.classList.toggle("active", on);
+        o.setAttribute("aria-selected", on ? "true" : "false");
+        o.tabIndex = on ? 0 : -1;
+        panel.hidden = !on;
+        panel.classList.toggle("show", on);
+        if (on) { var im = panel.querySelector("img"); if (im) im.loading = "eager"; }
+      });
+      if (focus) t.focus();
+      t.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "smooth" });
+    }
+    tabs.forEach(function (t, i) {
+      t.addEventListener("click", function () { pick(t); });
+      t.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowRight") pick(tabs[(i + 1) % tabs.length], true);
+        if (e.key === "ArrowLeft") pick(tabs[(i - 1 + tabs.length) % tabs.length], true);
+      });
+    });
+  });
+
   // ---- Gallery lightbox ----
   var gallery = document.querySelectorAll(".gallery-item img, img.zoomable, .carousel-slide img");
   if (gallery.length) {

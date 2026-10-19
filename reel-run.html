@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%276%27 fill=%27%230a0a0a%27/%3E%3Ctext x=%2716%27 y=%2723%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2716%27 fill=%27%234c8dff%27 text-anchor=%27middle%27%3EBS%3C/text%3E%3C/svg%3E">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=6">
 </head>
 <body class="film-grain theme-reel">
     <div class="letterbox top"></div>
@@ -76,10 +76,19 @@
                     </div>
                 </div>
 
+                <ul class="highlights" aria-label="Highlights">
+                    <li><strong>Shipped</strong><span>Free on Steam, April 2025</span></li>
+                    <li><strong>89%</strong><span>Positive reviews</span></li>
+                    <li><strong>29.8K</strong><span>Players on Steam</span></li>
+                    <li><strong>5 Levels</strong><span>Designed and whiteboxed</span></li>
+                    <li><strong>100+ Playtests</strong><span>Collected in 16 weeks</span></li>
+                </ul>
+
                 <div class="project-content content-grid">
                     <div class="overview-section">
                         <h2>Overview</h2>
                         <p>Reel Run is a 3D arcade hack-and-slash where players star in popular movie archetypes, fighting hordes across three levels (Western, Horror, Romance). Each level is styled after its film genre and era, with its own playable character and destructible environments.</p>
+                        <p>After our April 2025 launch, the team worked toward a multiplayer release. I focused on playtesting it, oversaw smaller production tasks, and helped with the team's admin work.</p>
                         <p>This page focuses on how I built my levels, from the first 2D map to the shipped game, and the design documentation I wrote along the way.</p>
                         <div class="btn-row mt-4">
                             <a href="https://store.steampowered.com/app/3554130/Reel_Run/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Play Free on Steam</a>
@@ -94,14 +103,14 @@
                                 <li>Wrote design docs for our systems, mechanics, and art pipelines.</li>
                                 <li>Led the 11-person team and kept everyone working toward the same vision.</li>
                                 <li>Ran playtests and iterated on the designs.</li>
-                                <li>Directed the marketing materials and the Steam page.</li>
+                                <li>Directed the marketing materials and the Steam page, which has drawn about 380K impressions and 140K visits.</li>
                             </ul>
                         </div>
                         <div class="role-block mt-4">
                             <h3>Level Designer</h3>
                             <ul>
                                 <li>Designed Western Acts 1 and 2 and all three Romance acts.</li>
-                                <li>Mapped each space in 2D, whiteboxed it in Unreal, then worked with art on the final pass.</li>
+                                <li>Mapped each space in 2D in Photoshop, whiteboxed it in Unreal, then worked with art on the final pass.</li>
                                 <li>My first map, the saloon, became the template the rest of the team followed.</li>
                             </ul>
                         </div>
@@ -112,6 +121,7 @@
                     <a href="#process">Process</a>
                     <a href="#train">Train</a>
                     <a href="#romance">Romance</a>
+                    <a href="#decisions">Decisions</a>
                     <a href="#documentation">Documentation</a>
                     <a href="#cut-content">Cut Content</a>
                     <a href="#gallery">Final Shots</a>
@@ -132,7 +142,7 @@
                             <span class="step-num">01</span>
                             <h3>Plan it in 2D</h3>
                             <p class="step-date">Sep 14-18, 2024</p>
-                            <p>I start every level as a top-down map on a grid, with a legend for scale, cover, and where the player and enemies spawn. The saloon went through several versions in four days, opening up the floor so waves of enemies had room to come at the player.</p>
+                            <p>I start every level as a top-down map in Photoshop on a grid, with a legend for scale, cover, and where the player and enemies spawn. The saloon went through several versions in four days, opening up the floor so waves of enemies had room to come at the player.</p>
                         </div>
                         <div class="step-media two">
                             <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-map-wip.jpg" alt="First WIP top-down map of the saloon" loading="lazy"><figcaption>First WIP map</figcaption></figure>
@@ -170,7 +180,7 @@
                             <span class="step-num">04</span>
                             <h3>Art and lighting pass</h3>
                             <p class="step-date">Oct-Nov 2024</p>
-                            <p>Once the layout was locked, the art team built over the whitebox and I worked on lighting to set the mood and keep combat readable.</p>
+                            <p>Once the layout was locked, the art team built over the whitebox. I did the first lighting pass to set the mood and keep combat readable, then handed it to our lighting artist for final touches.</p>
                         </div>
                         <div class="step-media two">
                             <figure class="stage"><img class="zoomable" src="assets/images/reel-run/saloon-art-pass.jpg" alt="Saloon during the first art pass" loading="lazy"><figcaption>First art pass <span class="credit">Team art</span></figcaption></figure>
@@ -246,12 +256,86 @@
             </div>
         </section>
 
+        <!-- DESIGN DECISIONS -->
+        <section id="decisions" class="section-padding pt-0">
+            <div class="container">
+                <p class="eyebrow">Iteration</p>
+                <h2 class="section-title">Design Decisions</h2>
+                <p class="section-intro">The problems we hit and how I handled them. Some feedback changed the game, and some I chose not to act on.</p>
+                <div class="decisions">
+                    <div class="dtabs" role="tablist" aria-label="Design decisions">
+                        <button class="dtab active" type="button" role="tab" id="dtab-saloon" aria-controls="dpanel-saloon" aria-selected="true"><span class="dtab-num">01</span>Saloon opening</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-train" aria-controls="dpanel-train" aria-selected="false" tabindex="-1"><span class="dtab-num">02</span>Train bottles</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-pose" aria-controls="dpanel-pose" aria-selected="false" tabindex="-1"><span class="dtab-num">03</span>Pose zones</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-ignacio" aria-controls="dpanel-ignacio" aria-selected="false" tabindex="-1"><span class="dtab-num">04</span>Ignacio</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-look" aria-controls="dpanel-look" aria-selected="false" tabindex="-1"><span class="dtab-num">05</span>90s look</button>
+                        <button class="dtab" type="button" role="tab" id="dtab-playtest" aria-controls="dpanel-playtest" aria-selected="false" tabindex="-1"><span class="dtab-num">06</span>Playtesting</button>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-saloon" aria-labelledby="dtab-saloon">
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run/saloon-final.jpg" alt="The shipped saloon" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Western Act 1</span>
+                            <h3>Gunmen on the balcony force players to move.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>Enemies lined up from one spot while players stood still, and the opening felt slow.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>I rebuilt the opening as a showdown with gunmen shooting down from above. Taking fire makes players move, and moving is how they find the breakable props.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-train" aria-labelledby="dtab-train" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run-2.jpg" alt="The shipped train cars" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Western Act 2</span>
+                            <h3>Not every playtest note should change the game.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>A playtester cleared a whole train car by throwing bottles from the next car over.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>We kept it. The fast pace already carries the level, a fix would have broken the flow, and skipping a fight that way is the player's choice, not a bug.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-pose" aria-labelledby="dtab-pose" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run/deck-dressed.jpg" alt="The pool deck with its stage and spotlights" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Romance Acts 1-2</span>
+                            <h3>Every film gets its own mechanic.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>Each film needed to play differently, not just look different.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>Power boxes switch on spotlights that pull enemies into pose zones, where they freeze mid-pose. The Romance hero fights in poses, so the level speaks the same language as the character.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-ignacio" aria-labelledby="dtab-ignacio" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run-8.jpg" alt="The club boss arena" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Romance Act 3</span>
+                            <h3>The final boss is your twin brother.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>The last fight needed to feel personal to the telenovela.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>Ignacio is the hero's twin and copies the player's moves. It's a classic telenovela twist, and it lets the club itself tell the story.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-look" aria-labelledby="dtab-look" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run/club-art.jpg" alt="The Romance club with its hazy 90s lighting" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">My biggest call</span>
+                            <h3>I scrapped the brushstroke look for 90s haze.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>The Romance level used a brushstroke shader that didn't fit the genre.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>As creative director, I replaced it with a hazy, dreamy 90s look that matches the telenovelas the level parodies. It was my biggest decision on the project.</p></div>
+                        </div>
+                    </div>
+                    <div class="dpanel" role="tabpanel" id="dpanel-playtest" aria-labelledby="dtab-playtest" hidden>
+                        <figure class="dpanel-media"><img class="zoomable" src="assets/images/reel-run/doc-playtest-notes.jpg" alt="Playtest notes from January 2025" loading="lazy"></figure>
+                        <div class="dpanel-text">
+                            <span class="stage-label">Creative director</span>
+                            <h3>100+ playtest responses in 16 weeks.</h3>
+                            <div class="dpanel-row"><span class="dc-label">The problem</span><p>Feedback was scattered across chats and notes.</p></div>
+                            <div class="dpanel-row"><span class="dc-label">What I did</span><p>We added a feedback button to the main menu that fed one shared sheet. It brought in 7 to 10 responses a week, a steady stream of notes the team reviewed together.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- DOCUMENTATION -->
         <section id="documentation" class="section-padding pt-0">
             <div class="container">
                 <p class="eyebrow">Creative Director</p>
                 <h2 class="section-title">Documentation</h2>
                 <p class="section-intro">As creative director, I developed our design documentation so an 11-person team could build from the same plan. These are excerpts from the GDD and our team channels.</p>
+                <p class="section-intro">I also built the map template every designer used for the GDD: one grid, one legend, one layout, so every level map reads the same way.</p>
 
                 <a class="gdd-card" href="assets/docs/Reel_Run_GDD.pdf" target="_blank" rel="noopener">
                     <div class="gdd-thumbs">
@@ -259,7 +343,7 @@
                         <img src="assets/images/reel-run/gdd-page.jpg" alt="Western Act 1 saloon map page from the GDD" loading="lazy">
                     </div>
                     <div class="gdd-info">
-                        <span class="stage-label">Game Design Document &middot; PDF &middot; 26 pages</span>
+                        <span class="stage-label">Game Design Document &middot; PDF</span>
                         <h3>Reel Run GDD</h3>
                         <p>Systems, combat and combo design, scoring, controls, UI, characters, and act-by-act breakdowns of every level with maps.</p>
                         <span class="btn btn-primary">Read the GDD</span>
@@ -267,6 +351,7 @@
                 </a>
 
                 <h3 class="doc-title">Level maps from the GDD</h3>
+                <p class="doc-note">All drawn on the shared template I made for the team.</p>
                 <div class="doc-grid">
                     <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-saloon-map.jpg" alt="GDD map: Act 1 Saloon" loading="lazy"><figcaption>Western Act 1: Saloon</figcaption></figure>
                     <figure class="doc-card"><img class="zoomable" src="assets/images/reel-run/gdd-train-map.jpg" alt="GDD map: Act 2 Train" loading="lazy"><figcaption>Western Act 2: Train</figcaption></figure>
@@ -308,7 +393,7 @@
             <div class="container">
                 <div class="reflection-section text-center">
                     <h3>Reflection</h3>
-                    <p class="accent-text">Reel Run was my most hands-on project, as both creative director and level designer. I kept asking myself whether each design fit the vision, whether other people could repeat it, and whether it made sense in the film's context.</p>
+                    <p class="accent-text">Reel Run taught me to treat feedback as information, not orders. Across all our playtests, the job was deciding which notes served the game we were making, like reworking the saloon opening, and which ones to let stand, like the train bottles.</p>
                 </div>
             </div>
         </section>
@@ -389,6 +474,6 @@
 
     <div class="letterbox bottom"></div>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=6"></script>
 </body>
 </html>
